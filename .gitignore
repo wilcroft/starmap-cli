@@ -1,0 +1,6 @@
+*.o
+*.exe
+400out.png
+largeout.png
+output.png
+output.rgb
