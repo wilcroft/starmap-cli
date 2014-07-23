@@ -8,11 +8,7 @@
 #define INPUTMAP "../200x200.rgb"
 #define OUTPUTRGB "output.rgb"
 
-#ifndef ISCLI
-#define ISCLI 1
-#endif
-
-#if ISCLI
+#ifdef ISCLI
 extern std::string inputImage;
 extern bool hasUserImg;
 extern bool generateImage;
