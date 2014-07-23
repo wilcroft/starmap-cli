@@ -26,14 +26,18 @@ void Map::buildMap(int sizex, int sizey, long seed){
 
 	std::uniform_real_distribution<> dist(0,100);
 	
+#if ISCLI
 	if (hasUserImg){
 		image = fopen (inputImage.c_str(), "rb");
 	}
 	else{
 		image = fopen (INPUTMAP,"rb");
 	}
+#else
+    image = fopen (INPUTMAP,"rb");
+#endif
 	if (image == nullptr) {
-		cerr << "INPUT FILE NOT FOUND";
+		cerr << "INPUT FILE " << INPUTMAP << " NOT FOUND" << endl;
 		exit (EXIT_FAILURE);
 	}
 	if (generateImage){
