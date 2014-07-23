@@ -26,7 +26,7 @@ void Map::buildMap(int sizex, int sizey, long seed){
 
 	std::uniform_real_distribution<> dist(0,100);
 	
-#if ISCLI
+#ifdef ISCLI
 	if (hasUserImg){
 		image = fopen (inputImage.c_str(), "rb");
 	}
@@ -57,7 +57,27 @@ void Map::buildMap(int sizex, int sizey, long seed){
 
 	for (int i = 0; i < y; i++){
 		for (int j = 0; j < x; j++){
-			intensity = (fgetc(image) + 2*fgetc(image) + fgetc(image))/4;
+			int r,g,b;
+			if ((r = fgetc(image))== EOF && feof(image)){
+				cerr << "ERROR: Input image is smaller than indicated size (" << sizex << "x" << sizey << ")." << endl;
+				exit (EXIT_FAILURE);
+			}
+			if ((g = fgetc(image))== EOF && feof(image)){
+				cerr << "ERROR: Input image is smaller than indicated size (" << sizex << "x" << sizey << ")." << endl;
+				exit (EXIT_FAILURE);
+			}
+			if ((b = fgetc(image))== EOF && feof(image)){
+				cerr << "ERROR: Input image is smaller than indicated size (" << sizex << "x" << sizey << ")." << endl;
+				exit (EXIT_FAILURE);
+			}
+			// tempread.r = fgetc(image);
+			// tempread.g = fgetc(image);
+			// tempread.b = fgetc(image);
+			// if ((tempread.r == EOF || tempread.g == EOF || tempread.g == EOF) && feof(image)){
+				// cerr << "ERROR: Input image is smaller than indicated size (" << sizex << "x" << sizey << ")." << endl;
+				// exit (EXIT_FAILURE);
+			// }
+			intensity = (r + 2*g + b)/4;
 			if (grid[i][j]==nullptr){
 				thresh = (intensity+1)*(intensity+1)/65536.0*THRESHOLD;
 				pct = dist(mt);
@@ -130,6 +150,11 @@ void Map::buildMap(int sizex, int sizey, long seed){
 				}
 			}
 		}
+	}
+	fgetc(image);
+	if (!feof(image)){
+		cerr << "ERROR: Input image is larger than indicated size (" << sizex << "x" << sizey << ")." << endl;
+		exit (EXIT_FAILURE);
 	}
 	
 	cout << "Grid Complete - Building Image... " << endl;

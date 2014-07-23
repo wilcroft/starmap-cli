@@ -1,10 +1,10 @@
 all: starmap starmap-win
 
 starmap: main.cpp star.o map.o planet.o
-	g++ main.cpp star.o planet.o map.o -o starmapv2 -std=c++11
+	g++ main.cpp star.o planet.o map.o -o starmapv2 -std=c++11  -D ISCLI
 	
 lite: main.cpp star.o map.o
-	g++ -g -std=c++11 -o starmapv2 main.cpp star.o map.o
+	g++ -g -std=c++11 -o starmapv2 main.cpp star.o map.o  -D ISCLI
 	
 star.o: star.cpp star.h planet.h util.h
 	g++ -c -g -std=c++11 -o star.o star.cpp -D ISCLI
