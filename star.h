@@ -56,6 +56,8 @@ class Star {
 //		Star (long, std::mt19937*);
 		enum starType getType();
 		enum starSize getSize();
+		std::string getTypeString(); 
+		std::string getSizeString(); 
 		void printStarInfo();
 		rgb_t getColor();
 		int getX();

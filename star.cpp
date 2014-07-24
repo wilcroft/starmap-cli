@@ -49,6 +49,43 @@ void Star::printStarInfo() {
 	}
 	cout << endl;
 }
+
+std::string Star::getTypeString(){
+	switch (type){
+		case TYPE_NIL:
+				return "NONE";
+		case TYPE_RED:
+				return "RED";
+		case TYPE_YELLOW:
+				return "YELLOW";
+		case TYPE_ORANGE:
+				return "ORANGE";
+		case TYPE_WHITE:
+				return "WHITE";
+		case TYPE_BLUE:
+				return "BLUE";
+		case TYPE_BLUEWHITE:
+				return "BLUE-WHITE";
+		case TYPE_BLUEVIOLET:
+				return "BLUE-VIOLET";
+		default:
+				return "NONE";
+	}
+}
+
+std::string Star::getSizeString(){
+	switch (size){
+		case DWARF:
+			return "DWARF";
+		case GIANT:
+			return "GIANT ";
+		case SUPERGIANT:
+			return "SUPERGIANT ";
+		default:
+			return "NONE";
+	}
+}
+
 Star::Star (std::mt19937* mt) {
 //	long seed;
 	double pct;
@@ -78,13 +115,23 @@ Star::Star (std::mt19937* mt) {
 	
 	if (pct < 85)
 		size = DWARF;
+		
+	// The following Stars classes can be giant-sized; others with be re-categorized
+	//    RED
+	//    BLUE
+	//    BLUEVIOLET
 	else if (pct < 98){
 		size = GIANT;
 		if (type == TYPE_ORANGE || type ==TYPE_YELLOW || type == TYPE_WHITE)
 			type = TYPE_RED;
 		else if (type == TYPE_BLUEWHITE)
 			type = TYPE_BLUE;
-	}
+	}		
+	// The following Stars classes can be supergiant-sized; others with be re-categorized
+	//    RED
+	//    YELLOW
+	//    BLUE
+	//    BLUEVIOLET
 	else{
 		size = SUPERGIANT;
 		if (type == TYPE_ORANGE)
