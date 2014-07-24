@@ -78,9 +78,9 @@ std::string Star::getSizeString(){
 		case DWARF:
 			return "DWARF";
 		case GIANT:
-			return "GIANT ";
+			return "GIANT";
 		case SUPERGIANT:
-			return "SUPERGIANT ";
+			return "SUPERGIANT";
 		default:
 			return "NONE";
 	}
