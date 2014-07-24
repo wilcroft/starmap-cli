@@ -1,24 +1,26 @@
 #ifndef __STARMAP_PLANET_H_
 #define __STARMAP_PLANET_H_
-/*
+#include <string>
+#include "util.h"
+
 enum planetType{
-	TYPE_ROCKY,
-	TYPE_GAS
+	PLANETTYPE_ROCKY,
+	PLANETTYPE_GAS
 };
 
 enum planetSize{
-	SMALL,
-	AVERAGE,
-	LARGE
+	PLANETSIZE_SMALL,
+	PLANETSIZE_AVERAGE,
+	PLANETSIZE_LARGE
 };
 
-enum biomeType{
-	BARREN,
-	ARID,
-	EARTHLIKE,
-	ARCTIC,
-	GAS
-}
+enum planetBiome{
+	PLANETBIOME_BARREN,
+	PLANETBIOME_ARID,
+	PLANETBIOME_EARTHLIKE,
+	PLANETBIOME_ARCTIC,
+	PLANETBIOME_GAS
+};
 
 
 
@@ -26,18 +28,23 @@ enum biomeType{
 class Planet{
 		enum planetType type;
 		enum planetSize size;
-		enum biomeType biome;
+		enum planetBiome biome;
 
 		int numMoons;
 		
 	public:
+		Planet();
 		enum planetType getType();
 		enum planetSize getSize();
+		enum planetBiome getBiome();
+		std::string getTypeString();
+		std::string getSizeString();
+		std::string getBiomeString();
 		
 	
 
 
+};
 
 
-*/
 #endif

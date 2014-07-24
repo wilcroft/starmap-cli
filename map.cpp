@@ -3,16 +3,17 @@
 
 Map::Map(int sizex, int sizey){
 	std::random_device rd;
-	long seed;
+//	long seed;
 	
-	seed = rd();
+	mapSeed = rd();
 	
-	cout << "Using seed " << seed << endl;
-	buildMap(sizex,sizey,seed);
+	cout << "Using seed " << mapSeed << endl;
+	buildMap(sizex,sizey,mapSeed);
 }
-Map::Map(int sizex, int sizey, long seed){
-	cout << "Using seed " << seed << endl;
-	buildMap(sizex,sizey,seed);
+Map::Map(int sizex, int sizey, long userSeed){
+	mapSeed = userSeed;
+	cout << "Using seed " << mapSeed << endl;
+	buildMap(sizex,sizey,mapSeed);
 }
 
 void Map::buildMap(int sizex, int sizey, long seed){
@@ -221,6 +222,7 @@ Star* Map::getStar (int xco, int yco){
 int Map::getGridWidth () { return x;}
 int Map::getGridHeight () { return y;}
 long Map::getNumStars () {return numStars;}
+long Map::getMapSeed () {return mapSeed;}
 
 void Map::printAllStars(){
 	for (starListIterator=starList.begin(); starListIterator != starList.end(); starListIterator ++){

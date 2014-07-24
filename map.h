@@ -14,6 +14,7 @@ class Map{
 		int y;
 		
 		long numStars;
+		long mapSeed;
 		
 		vector<Star*> starList;
 		
@@ -33,6 +34,7 @@ class Map{
 		//starListIterator end() {return starList.end(); }
 		void printAllStars();
 		long getNumStars();
+		long getMapSeed();
 		
 };
 

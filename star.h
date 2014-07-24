@@ -39,6 +39,17 @@ enum starClass{
 };
 
 class Map;
+
+/***************************************************
+ * Star Class
+ *  A star is of one of three sizes, and seven colours.
+ *  It links to up to 5 planets, which are sorted from
+ *  smallest to largest orbits.
+ *
+ *  All aspects of the star - including the number and 
+ *  type and location of planets, is determined off a
+ *  seeded mt19937, which produces real values (0,100]
+ ***************************************************/ 
 class Star {
 		friend Map;
 		enum starType type;
@@ -49,7 +60,7 @@ class Star {
 		int numPlanets;
 		void setX(int);
 		void setY(int);
-		//Planet * planets;
+		Planet* planet[5];
 	
 	public:
 		Star (std::mt19937*);
