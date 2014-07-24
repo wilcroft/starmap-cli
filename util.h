@@ -5,7 +5,7 @@
 #define ISDEBUG 0
 #define PRINTDEBUG(...) if (ISDEBUG) printf(__VA_ARGS__)
 
-#define INPUTMAP "../200x200.rgb"
+#define INPUTMAP "200x200.rgb"
 #define OUTPUTRGB "output.rgb"
 
 #ifdef ISCLI
