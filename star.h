@@ -71,6 +71,7 @@ class Star {
 		std::string getPlanetTypeString(int);
 		std::string getPlanetSizeString(int);
 		std::string getPlanetBiomeString(int);
+		std::string getPlanetString(int);
 		void printPlanet(int);
 		
 

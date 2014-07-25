@@ -315,6 +315,14 @@ std::string Star::getPlanetBiomeString(int i){
 	else
 		return planet[i]->getBiomeString();
 }
+std::string Star::getPlanetString(int i){
+	if (planet[i]==nullptr)
+		return "";
+	else if (planet[i]->getType()==PLANETTYPE_GAS)
+		return "GAS GIANT";
+	else
+		return planet[i]->getSizeString() + " " + planet[i]->getBiomeString();
+}
 void Star::printPlanet(int i){
 	if (i>=0 && i<5 && planet[i]!=nullptr)
 		planet[i]->printPlanet();
