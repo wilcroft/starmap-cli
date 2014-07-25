@@ -8,14 +8,17 @@ starmap: main.cpp star.o map.o planet.o
 lite: main.cpp star.o map.o
 	g++ -g -std=c++11 -o lite main.cpp star.o map.o -D ISCLI
 	
-star.o: star.cpp star.h planet.h util.h
+planettest: planettest.cpp planet.o
+	g++ planettest.cpp planet.o -o planettest -std=c++11 -D ISCLI
+	
+star.o: star.cpp star.h planet.h util.h startype.h
 	g++ -c -g -std=c++11 -o star.o star.cpp -D ISCLI
 	
 map.o: map.cpp map.h star.h util.h
 	g++ -c -g -std=c++11 -o map.o map.cpp -D ISCLI
 	
-planet.o: planet.cpp planet.h util.h
-	g++ planet.cpp -c -g -o planet.o -std=c++11 
+planet.o: planet.cpp planet.h util.h startype.h
+	g++ planet.cpp -c -g -o planet.o -std=c++11 -D ISCLI
 
 run: starmap
 	./starmap
@@ -37,4 +40,6 @@ mapw.o: map.cpp map.h star.h util.h
 	
 clean:
 	rm -f *.o
+	
+
 	

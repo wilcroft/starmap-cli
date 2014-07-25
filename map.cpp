@@ -49,6 +49,7 @@ void Map::buildMap(int sizex, int sizey, long seed){
 	x = sizex;
 	y = sizey;
 	numStars = 0;
+	numPlanets = 0;
 	
 	grid = new Star** [y];
 	for (int i = 0; i < y; i++){
@@ -98,7 +99,6 @@ void Map::buildMap(int sizex, int sizey, long seed){
 				else if (pct <= thresh){
 					PRINTDEBUG("Making Star...");
 					bool starOK;
-					//grid[i][j] = new Star (&mt);
 					do{
 						starOK=true;
 						newStar = new Star (&mt);
@@ -124,6 +124,7 @@ void Map::buildMap(int sizex, int sizey, long seed){
 					newStar->setY(i);
 					PRINTDEBUG(" COORIDINATES SET.\n");
 					numStars ++;
+					numPlanets += newStar->getNumPlanets();
 									
 					grid[i][j] = newStar;
 					if (newStar->getSize()==GIANT){
@@ -222,6 +223,7 @@ Star* Map::getStar (int xco, int yco){
 int Map::getGridWidth () { return x;}
 int Map::getGridHeight () { return y;}
 long Map::getNumStars () {return numStars;}
+long Map::getNumPlanets () {return numPlanets;}
 long Map::getMapSeed () {return mapSeed;}
 
 void Map::printAllStars(){

@@ -4,23 +4,12 @@
 #include <random>
 #include <iostream>
 #include "planet.h"
+#include "startype.h"
 #include "util.h"
 
 #define THRESHOLD 10.0
 
 using namespace std;
-
-enum starType{
-	TYPE_NIL = 0,
-	TYPE_RED,
-	TYPE_ORANGE,
-	TYPE_BLUE,
-	TYPE_YELLOW,
-	TYPE_WHITE,
-	TYPE_BLUEWHITE,
-	TYPE_BLUEVIOLET,
-	TYPE_BROWN
-};
 
 enum starSize{
 	NONE = 0,
@@ -52,27 +41,38 @@ class Map;
  ***************************************************/ 
 class Star {
 		friend Map;
+		
 		enum starType type;
 		enum starSize size;
-		
 		int x, y;
-		
 		int numPlanets;
-		void setX(int);
-		void setY(int);
 		Planet* planet[5];
 	
+		void setX(int);
+		void setY(int);
+		void addPlanets(std::mt19937*);
+		
 	public:
 		Star (std::mt19937*);
+		~Star();
 //		Star (long, std::mt19937*);
+		int getX();
+		int getY();
+		int getNumPlanets();
 		enum starType getType();
 		enum starSize getSize();
 		std::string getTypeString(); 
 		std::string getSizeString(); 
 		void printStarInfo();
 		rgb_t getColor();
-		int getX();
-		int getY();
+		enum planetType getPlanetType(int);
+		enum planetSize getPlanetSize(int);
+		enum planetBiome getPlanetBiome(int);
+		std::string getPlanetTypeString(int);
+		std::string getPlanetSizeString(int);
+		std::string getPlanetBiomeString(int);
+		void printPlanet(int);
+		
 
 };
 #endif
