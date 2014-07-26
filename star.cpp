@@ -13,16 +13,35 @@ void Star::addPlanets(std::mt19937* mt){
 	double thresh;
 	switch (type){
 		case (TYPE_RED):		// M
-////////////UNIMPLIMENTED!!!//////////////		
-			for (int i=0; i<5; i++) {
-				planet[i] = nullptr;
-			}
+				thresh = 22;
+				for (int i=0; i<5; i++){
+					pct = dist(*mt);
+					if (pct<thresh){ //HIT
+						planet[i]=new Planet(mt, i, this);
+						thresh = thresh*0.8;
+						numPlanets++;
+					}
+					else{
+						planet[i] = nullptr;
+						thresh=thresh*1.05;
+					}
+				}
+				
 			break;
 		case (TYPE_ORANGE): 	// K
-////////////UNIMPLIMENTED!!!//////////////	
-			for (int i=0; i<5; i++) {
-				planet[i] = nullptr;
-			}
+				thresh = 20;
+				for (int i=0; i<5; i++){
+					pct = dist(*mt);
+					if (pct<thresh){ //HIT
+						planet[i] = new Planet(mt, i, this);
+						thresh = thresh/4;
+						numPlanets++;
+					}
+					else{
+						planet[i] = nullptr;
+						thresh=thresh+18;
+					}
+				}
 			break;
 		case (TYPE_YELLOW): 	// G
 				thresh = 20;
@@ -55,6 +74,21 @@ void Star::addPlanets(std::mt19937* mt){
 				}	
 			break;
 		case (TYPE_BLUEWHITE):	// A
+				thresh = 1;
+				for (int i=0; i<5; i++){
+					pct = dist(*mt);
+					if (pct<thresh){ //HIT
+						planet[i]=new Planet(mt, i, this);
+						thresh = thresh*0.8;
+						numPlanets++;
+					}
+					else{
+						planet[i] = nullptr;
+						thresh=thresh*3.1;
+					}
+				}
+				
+			break;
 		case (TYPE_BLUE):		// B
 				thresh = 2;
 				for (int i=0; i<5; i++){
