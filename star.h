@@ -5,6 +5,7 @@
 #include <iostream>
 #include "planet.h"
 #include "startype.h"
+#include "player.h"
 #include "util.h"
 
 #define THRESHOLD 10.0
@@ -47,6 +48,7 @@ class Star {
 		int x, y;
 		int numPlanets;
 		Planet* planet[5];
+		enum starmapPlayer owner;
 	
 		void setX(int);
 		void setY(int);
@@ -73,6 +75,8 @@ class Star {
 		std::string getPlanetBiomeString(int);
 		std::string getPlanetString(int);
 		void printPlanet(int);
+		enum starmapPlayer getOwner();
+		void setOwner (enum starmapPlayer);
 		
 
 };

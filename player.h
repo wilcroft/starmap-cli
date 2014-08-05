@@ -1,0 +1,21 @@
+#ifndef __STARMAP_PLAYER_H_
+#define __STARMAP_PLAYER_H_
+#include "util.h"
+
+enum starmapPlayer{
+	STARMAPPLAYER_NIL = 0,
+	STARMAPPLAYER_ONE,
+	STARMAPPLAYER_TWO,
+	STARMAPPLAYER_THREE,
+	STARMAPPLAYER_FOUR,
+	STARMAPPLAYER_FIVE,
+	STARMAPPLAYER_SIX,
+	STARMAPPLAYER_SEVEN,
+	STARMAPPLAYER_EIGHT
+};
+
+
+rgb_t getPlayerColor(enum starmapPlayer);
+
+
+#endif

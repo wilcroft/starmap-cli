@@ -169,6 +169,10 @@ Star::Star (std::mt19937* mt) {
 			type = TYPE_BLUE;
 	}
 	
+	// Mark as unowned
+	owner = STARMAPPLAYER_NIL;
+	
+	
 	//Generate Planets
 	numPlanets=0;
 	addPlanets(mt);
@@ -362,11 +366,5 @@ void Star::printPlanet(int i){
 		planet[i]->printPlanet();
 }
 
-/* Star::Star (long seed, std::mt19937* mt) {
-	double pct;
-	std::mt19937 mt(seed); //set different seed
-	std::uniform_real_distribution<> dist(0,100);
-//	type = NOSTAR;
-//	size = NONE;
-	pct = dist(&mt);
-} */
+enum starmapPlayer Star::getOwner() { return owner;}
+void Star::setOwner (enum starmapPlayer p) {owner = p;}
