@@ -24,7 +24,7 @@ player.o:  player.cpp player.h util.h
 	g++ player.cpp -c -g -o player.o -std=c++11 -D ISCLI
 
 run: starmap
-	./starmap
+	./starmap 200 200 -i 200x200.rgb --no-lookup
 
 run-lite: lite
 	./lite 200 200 -i 200x200.rgb --no-lookup

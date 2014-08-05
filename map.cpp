@@ -193,9 +193,11 @@ void Map::buildMap(int sizex, int sizey, long seed){
 		}
 		fclose (output);
 		PRINTDEBUG("CONVERTING IMAGE FROM RAW...");
-		int scale = 100*800/x;
+		int scale = 100*1000/x;
 		sprintf(convertCMD,"convert.exe -size %dx%d -depth 8 rgb:output.rgb -scale %d%% output.png",x,y,scale);
 		cout << convertCMD << endl;
+		system(convertCMD);
+		sprintf(convertCMD,"convert.exe output.png -transparent black output-t.png");
 		system(convertCMD);
 		//sprintf(convertCMD,"convert -size %dx%d output.png -size %dx%d largeout.png", x,y,2*x,2*y);
 		//system(convertCMD);
