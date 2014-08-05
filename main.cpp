@@ -16,6 +16,7 @@ void printHelpMsg(const char* progName){
 		cout << "\t-s, --seed <int>          Specify the seed for generation. Random if not provided." << endl; 
 		cout << "\t-i  --input-image <str>   Specify the image used for generating the map." << endl;
 		cout << "\t-o  --output-image <str>  Specify the name of the generated image." << endl;
+		cout << "\t-d  --dimension <int>     Specify output dimension." << endl;
 		cout << "\t    --no-output           Skip output image generation (Lookup mode)." << endl;
 		cout << "\t    --no-lookup           Skip lookup mode (Only generate output image)." << endl;
 }
@@ -23,10 +24,12 @@ void printHelpMsg(const char* progName){
 
 	string inputImage;
 	string outputImage;
+	int userDim;
 	bool hasUserSeed = false;
 	bool hasUserImg = false;
 	bool hasUserOutputImg = false;
 	bool generateImage = true;
+	bool hasUserDim = false;
 
 int main(int argc, char ** argv){
 	char* xptr;
@@ -102,6 +105,24 @@ int main(int argc, char ** argv){
 					return -1;
 				}
 				hasUserSeed = true;
+				idx +=2;
+			}
+			else if (strcmp(argv[idx],"--dimension")==0||strcmp(argv[idx],"-d")==0){
+				if (hasUserDim){
+					cerr << "Error: Multiple dimensions specified!" << endl;
+					return -1;
+				}
+				if (argc <= idx+1){
+					cerr << "Missing value for --dimension option." << endl;
+					return -1;
+				}
+				char * dptr;
+				userDim = strtol(argv[idx+1],&dptr,10);
+				if (seed < 0 || *dptr!='\0'){
+					cerr << "Dimension value must an integer be greater than 0." << endl;
+					return -1;
+				}
+				hasUserDim = true;
 				idx +=2;
 			}
 			else if (strcmp(argv[idx],"--input-image")==0||strcmp(argv[idx],"-i")==0){

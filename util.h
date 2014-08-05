@@ -8,10 +8,12 @@
 #define INPUTMAP "200x200.rgb"
 #define OUTPUTRGB "output.rgb"
 
+extern int userDim;
 #ifdef ISCLI
 extern std::string inputImage;
 extern bool hasUserImg;
 extern bool generateImage;
+extern bool hasUserDim;
 #else
 #define hasUserImg 0
 #define generateImage 1
