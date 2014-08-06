@@ -121,7 +121,9 @@ void Star::addPlanets(std::mt19937* mt){
 Star::Star (std::mt19937* mt) {
 	double pct;
 	std::uniform_real_distribution<> dist(0,100);
+    std::uniform_int_distribution<> plr (0,8);
 	pct = dist (*mt);
+
 	
 	if (pct < 76.45)
 		type = TYPE_RED;
@@ -170,8 +172,7 @@ Star::Star (std::mt19937* mt) {
 	}
 	
 	// Mark as unowned
-	owner = STARMAPPLAYER_NIL;
-	
+    owner = (enum starmapPlayer)plr(*mt);
 	
 	//Generate Planets
 	numPlanets=0;

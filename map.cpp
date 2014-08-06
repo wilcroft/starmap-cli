@@ -243,5 +243,5 @@ void Map::printAllStars(){
 }
 	
 
-//starListIterator Map::begin() {return starList.begin(); }
-//starListIterator Map::end() {return starList.end(); }
+vector<Star*>::iterator Map::begin() {return starList.begin(); }
+vector<Star*>::iterator Map::end() {return starList.end(); }

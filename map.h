@@ -31,8 +31,8 @@ class Map{
 		Star* getStar(int,int);
 		int getGridWidth();
 		int getGridHeight();
-		//starListIterator begin() {return starList.begin(); }
-		//starListIterator end() {return starList.end(); }
+        vector<Star*>::iterator begin();
+        vector<Star*>::iterator end();
 		void printAllStars();
 		long getNumStars();
 		long getNumPlanets();

@@ -9,9 +9,9 @@ rgb_t getPlayerColor(enum starmapPlayer p){
 			color.b=0;
 			break;
 		case STARMAPPLAYER_TWO:
-			color.r=0xff;
-			color.g=0;
-			color.b=0xe8;
+            color.r=29;//0xff;
+            color.g=90;//0;
+            color.b=252;//0xe8;
 			break;
 		case STARMAPPLAYER_THREE:
 			color.r=0xbf;

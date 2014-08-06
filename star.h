@@ -14,9 +14,9 @@ using namespace std;
 
 enum starSize{
 	NONE = 0,
-	DWARF,
-	GIANT,
-	SUPERGIANT
+    DWARF = 1,
+    GIANT = 2,
+    SUPERGIANT = 3
 };
 enum starClass{
 	CLASSO,
