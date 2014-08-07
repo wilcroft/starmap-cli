@@ -325,6 +325,7 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 					break;
 			}
 			break;
+        default: ;
 	}
 }
 

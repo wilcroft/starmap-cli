@@ -166,7 +166,7 @@ void Map::buildMap(int sizex, int sizey, long seed){
 	//PRINTDEBUG("\n");
 	starListIterator=starList.begin();
 	for (int i=0; i<numStars; i++){
-		PRINTDEBUG ("%d:0x%X\n",i,*(starListIterator+i));
+        PRINTDEBUG ("%d:0x%X\n",i,*(starListIterator+i));
 	}
 	cout << endl;
 	if (generateImage){
@@ -174,7 +174,7 @@ void Map::buildMap(int sizex, int sizey, long seed){
 			//PRINTDEBUG("%d:\t",i);
 			PRINTDEBUG("%d:\n",i);
 			for (int j = 0; j < x; j++){
-				PRINTDEBUG("\t%d\t0x%X\n",j,grid[i][j]);
+                PRINTDEBUG("\t%d\t0x%X\n",j,grid[i][j]);
 				if (grid[i][j] == nullptr){
 				//	PRINTDEBUG("-");
 					fputc(0,output);
@@ -202,10 +202,10 @@ void Map::buildMap(int sizex, int sizey, long seed){
 		#else
 		scale = 100*userDim/x;
 		#endif
-		sprintf(convertCMD,"convert.exe -size %dx%d -depth 8 rgb:output.rgb -scale %d%% output.png",x,y,scale);
+        sprintf(convertCMD,"convert -size %dx%d -depth 8 rgb:output.rgb -scale %d%% output.png",x,y,scale);
 		cout << convertCMD << endl;
 		system(convertCMD);
-		sprintf(convertCMD,"convert.exe output.png -transparent black output-t.png");
+        sprintf(convertCMD,"convert output.png -transparent black output-t.png");
 		system(convertCMD);
 		//sprintf(convertCMD,"convert -size %dx%d output.png -size %dx%d largeout.png", x,y,2*x,2*y);
 		//system(convertCMD);

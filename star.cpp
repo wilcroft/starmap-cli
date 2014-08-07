@@ -256,6 +256,8 @@ void Star::printStarInfo() {
 				break;
 		case TYPE_BLUEVIOLET:
 				cout << "BLUE-VIOLET ";
+                break;
+        default: ;
 	}
 	switch (size){
 		case DWARF:
@@ -267,6 +269,7 @@ void Star::printStarInfo() {
 		case SUPERGIANT:
 			cout << "SUPERGIANT ";
 			break;
+        default: ;
 	}
 	cout << endl;
 }
