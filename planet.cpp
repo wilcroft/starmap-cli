@@ -129,9 +129,15 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 						biome=PLANETBIOME_BARREN;
 						size=PLANETSIZE_AVERAGE;
 					}
-					else{
-						type=PLANETTYPE_ROCKY;
-						biome=PLANETBIOME_EARTHLIKE;
+                    else{
+                        pct = dist(*mt);
+                        type=PLANETTYPE_ROCKY;
+                        if (pct<40)
+                            biome=PLANETBIOME_ARID;
+                        else if (pct<90)
+                            biome=PLANETBIOME_EARTHLIKE;
+                        else
+                            biome=PLANETBIOME_ARCTIC;
 						size=PLANETSIZE_AVERAGE;					
 					}
 					break;
@@ -141,9 +147,15 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 						biome=PLANETBIOME_BARREN;
 						size=PLANETSIZE_AVERAGE;
 					}
-					else{
-						type=PLANETTYPE_ROCKY;
-						biome=PLANETBIOME_EARTHLIKE;
+                    else{
+                        pct = dist(*mt);
+                        type=PLANETTYPE_ROCKY;
+                        if (pct<20)
+                            biome=PLANETBIOME_ARID;
+                        else if (pct<70)
+                            biome=PLANETBIOME_EARTHLIKE;
+                        else
+                            biome=PLANETBIOME_ARCTIC;
 						size=PLANETSIZE_AVERAGE;					
 					}
 					break;
@@ -179,9 +191,15 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 						biome=PLANETBIOME_BARREN;
 						size=PLANETSIZE_AVERAGE;
 					}
-					else{
-						type=PLANETTYPE_ROCKY;
-						biome=PLANETBIOME_EARTHLIKE;
+                    else{
+                        pct = dist(*mt);
+                        type=PLANETTYPE_ROCKY;
+                        if (pct<30)
+                            biome=PLANETBIOME_ARID;
+                        else if (pct<80)
+                            biome=PLANETBIOME_EARTHLIKE;
+                        else
+                            biome=PLANETBIOME_ARCTIC;
 						size=PLANETSIZE_AVERAGE;					
 					}
 					break;
@@ -191,9 +209,15 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 						biome=PLANETBIOME_BARREN;
 						size=PLANETSIZE_AVERAGE;
 					}
-					else{
-						type=PLANETTYPE_ROCKY;
-						biome=PLANETBIOME_EARTHLIKE;
+                    else{
+                        pct = dist(*mt);
+                        type=PLANETTYPE_ROCKY;
+                        if (pct<20)
+                            biome=PLANETBIOME_ARID;
+                        else if (pct<80)
+                            biome=PLANETBIOME_EARTHLIKE;
+                        else
+                            biome=PLANETBIOME_ARCTIC;
 						size=PLANETSIZE_AVERAGE;				
 					}
 					break;
@@ -237,9 +261,15 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 						biome=PLANETBIOME_BARREN;
 						size=PLANETSIZE_AVERAGE;
 					}
-					else{
-						type=PLANETTYPE_ROCKY;
-						biome=PLANETBIOME_EARTHLIKE;
+                    else{
+                        pct = dist(*mt);
+                        type=PLANETTYPE_ROCKY;
+                        if (pct<30)
+                            biome=PLANETBIOME_ARID;
+                        else if (pct<90)
+                            biome=PLANETBIOME_EARTHLIKE;
+                        else
+                            biome=PLANETBIOME_ARCTIC;
 						size=PLANETSIZE_AVERAGE;					
 					}
 					break;
@@ -249,9 +279,15 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 						biome=PLANETBIOME_BARREN;
 						size=PLANETSIZE_AVERAGE;
 					}
-					else{
-						type=PLANETTYPE_ROCKY;
-						biome=PLANETBIOME_EARTHLIKE;
+                    else{
+                        pct = dist(*mt);
+                        type=PLANETTYPE_ROCKY;
+                        if (pct<10)
+                            biome=PLANETBIOME_ARID;
+                        else if (pct<50)
+                            biome=PLANETBIOME_EARTHLIKE;
+                        else
+                            biome=PLANETBIOME_ARCTIC;
 						size=PLANETSIZE_AVERAGE;					
 					}
 					break;
@@ -290,9 +326,15 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 						biome=PLANETBIOME_BARREN;
 						size=PLANETSIZE_AVERAGE;
 					}
-					else{
-						type=PLANETTYPE_ROCKY;
-						biome=PLANETBIOME_EARTHLIKE;
+                    else{
+                        pct = dist(*mt);
+                        type=PLANETTYPE_ROCKY;
+                        if (pct<50)
+                            biome=PLANETBIOME_ARID;
+                        else if (pct<90)
+                            biome=PLANETBIOME_EARTHLIKE;
+                        else
+                            biome=PLANETBIOME_ARCTIC;
 						size=PLANETSIZE_AVERAGE;					
 					}
 					break;
@@ -302,9 +344,15 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 						biome=PLANETBIOME_BARREN;
 						size=PLANETSIZE_AVERAGE;
 					}
-					else{
-						type=PLANETTYPE_ROCKY;
-						biome=PLANETBIOME_EARTHLIKE;
+                    else{
+                        pct = dist(*mt);
+                        type=PLANETTYPE_ROCKY;
+                        if (pct<10)
+                            biome=PLANETBIOME_ARID;
+                        else if (pct<70)
+                            biome=PLANETBIOME_EARTHLIKE;
+                        else
+                            biome=PLANETBIOME_ARCTIC;
 						size=PLANETSIZE_AVERAGE;					
 					}
 					break;
