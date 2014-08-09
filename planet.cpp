@@ -32,13 +32,25 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 				case 0:
 					type=PLANETTYPE_ROCKY;
 					biome=PLANETBIOME_BARREN;
-					size=PLANETSIZE_AVERAGE;
+					pct = dist(*mt);
+					if (pct<20)
+						size=PLANETSIZE_SMALL;
+					else if (pct<70)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 1:
 					if (pct<40){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<20)
+							size=PLANETSIZE_SMALL;
+						else if (pct<60)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -50,7 +62,13 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 					if (pct<30&&!hasGas){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<10)
+							size=PLANETSIZE_SMALL;
+						else if (pct<50)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -62,7 +80,13 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 					if (pct<20&&!hasGas){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<10)
+							size=PLANETSIZE_SMALL;
+						else if (pct<40)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -82,13 +106,25 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 				case 0:
 					type=PLANETTYPE_ROCKY;
 					biome=PLANETBIOME_BARREN;
-					size=PLANETSIZE_AVERAGE;
+					pct = dist(*mt);
+					if (pct<10)
+						size=PLANETSIZE_SMALL;
+					else if (pct<70)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 1:
 					if (pct<20){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<10)
+							size=PLANETSIZE_SMALL;
+						else if (pct<50)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -100,7 +136,13 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 					if (pct<10&&!hasGas){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<10)
+							size=PLANETSIZE_SMALL;
+						else if (pct<30)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -121,13 +163,18 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 				case 0:
 					type=PLANETTYPE_ROCKY;
 					biome=PLANETBIOME_BARREN;
-					size=PLANETSIZE_AVERAGE;
+					pct = dist(*mt);
+					if (pct<50)
+						size=PLANETSIZE_SMALL;
+					else if (pct<80)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 1:
 					if (pct<60){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
 					}
                     else{
                         pct = dist(*mt);
@@ -137,15 +184,20 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
                         else if (pct<90)
                             biome=PLANETBIOME_EARTHLIKE;
                         else
-                            biome=PLANETBIOME_ARCTIC;
-						size=PLANETSIZE_AVERAGE;					
+                            biome=PLANETBIOME_ARCTIC;				
 					}
+					pct = dist(*mt);
+					if (pct<40)
+						size=PLANETSIZE_SMALL;
+					else if (pct<80)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 2:
 					if (pct<30){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
 					}
                     else{
                         pct = dist(*mt);
@@ -155,15 +207,27 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
                         else if (pct<70)
                             biome=PLANETBIOME_EARTHLIKE;
                         else
-                            biome=PLANETBIOME_ARCTIC;
-						size=PLANETSIZE_AVERAGE;					
+                            biome=PLANETBIOME_ARCTIC;			
 					}
+					pct = dist(*mt);
+					if (pct<30)
+						size=PLANETSIZE_SMALL;
+					else if (pct<70)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 3:
 					if (pct<50){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<20)
+							size=PLANETSIZE_SMALL;
+						else if (pct<60)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -183,13 +247,18 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 				case 0:
 					type=PLANETTYPE_ROCKY;
 					biome=PLANETBIOME_BARREN;
-					size=PLANETSIZE_AVERAGE;
+					pct = dist(*mt);
+					if (pct<50)
+						size=PLANETSIZE_SMALL;
+					else if (pct<80)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 1:
 					if (pct<50){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
 					}
                     else{
                         pct = dist(*mt);
@@ -199,15 +268,20 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
                         else if (pct<80)
                             biome=PLANETBIOME_EARTHLIKE;
                         else
-                            biome=PLANETBIOME_ARCTIC;
-						size=PLANETSIZE_AVERAGE;					
+                            biome=PLANETBIOME_ARCTIC;			
 					}
+					pct = dist(*mt);
+					if (pct<40)
+						size=PLANETSIZE_SMALL;
+					else if (pct<80)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 2:
 					if (pct<30){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
 					}
                     else{
                         pct = dist(*mt);
@@ -217,15 +291,27 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
                         else if (pct<80)
                             biome=PLANETBIOME_EARTHLIKE;
                         else
-                            biome=PLANETBIOME_ARCTIC;
-						size=PLANETSIZE_AVERAGE;				
+                            biome=PLANETBIOME_ARCTIC;		
 					}
+					pct = dist(*mt);
+					if (pct<30)
+						size=PLANETSIZE_SMALL;
+					else if (pct<70)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 3:
 					if (pct<40){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<20)
+							size=PLANETSIZE_SMALL;
+						else if (pct<50)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -237,7 +323,13 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 					if (pct<20&&!hasGas){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<10)
+							size=PLANETSIZE_SMALL;
+						else if (pct<30)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -253,13 +345,18 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 				case 0:
 					type=PLANETTYPE_ROCKY;
 					biome=PLANETBIOME_BARREN;
-					size=PLANETSIZE_AVERAGE;
+					pct = dist(*mt);
+					if (pct<60)
+						size=PLANETSIZE_SMALL;
+					else if (pct<90)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 1:
 					if (pct<40){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
 					}
                     else{
                         pct = dist(*mt);
@@ -269,15 +366,20 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
                         else if (pct<90)
                             biome=PLANETBIOME_EARTHLIKE;
                         else
-                            biome=PLANETBIOME_ARCTIC;
-						size=PLANETSIZE_AVERAGE;					
+                            biome=PLANETBIOME_ARCTIC;				
 					}
+					pct = dist(*mt);
+					if (pct<40)
+						size=PLANETSIZE_SMALL;
+					else if (pct<80)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 2:
 					if (pct<60){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
 					}
                     else{
                         pct = dist(*mt);
@@ -287,15 +389,27 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
                         else if (pct<50)
                             biome=PLANETBIOME_EARTHLIKE;
                         else
-                            biome=PLANETBIOME_ARCTIC;
-						size=PLANETSIZE_AVERAGE;					
+                            biome=PLANETBIOME_ARCTIC;			
 					}
+					pct = dist(*mt);
+					if (pct<20)
+						size=PLANETSIZE_SMALL;
+					else if (pct<70)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 3:
 					if (pct<30){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<10)
+							size=PLANETSIZE_SMALL;
+						else if (pct<40)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -307,7 +421,13 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 					if (pct<10&&!hasGas){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
+						pct = dist(*mt);
+						if (pct<10)
+							size=PLANETSIZE_SMALL;
+						else if (pct<20)
+							size=PLANETSIZE_AVERAGE;
+						else
+							size=PLANETSIZE_LARGE;
 					}
 					else{
 						type=PLANETTYPE_GAS;
@@ -324,7 +444,6 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
 					if (pct<70){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
 					}
                     else{
                         pct = dist(*mt);
@@ -334,15 +453,20 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
                         else if (pct<90)
                             biome=PLANETBIOME_EARTHLIKE;
                         else
-                            biome=PLANETBIOME_ARCTIC;
-						size=PLANETSIZE_AVERAGE;					
+                            biome=PLANETBIOME_ARCTIC;			
 					}
+					pct = dist(*mt);
+					if (pct<60)
+						size=PLANETSIZE_SMALL;
+					else if (pct<90)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 1:
 					if (pct<30){
 						type=PLANETTYPE_ROCKY;
 						biome=PLANETBIOME_BARREN;
-						size=PLANETSIZE_AVERAGE;
 					}
                     else{
                         pct = dist(*mt);
@@ -352,14 +476,26 @@ Planet::Planet(std::mt19937* mt, int orbit, Star* star){
                         else if (pct<70)
                             biome=PLANETBIOME_EARTHLIKE;
                         else
-                            biome=PLANETBIOME_ARCTIC;
-						size=PLANETSIZE_AVERAGE;					
+                            biome=PLANETBIOME_ARCTIC;			
 					}
+					pct = dist(*mt);
+					if (pct<20)
+						size=PLANETSIZE_SMALL;
+					else if (pct<80)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 2:
 					type=PLANETTYPE_ROCKY;
 					biome=PLANETBIOME_BARREN;
-					size=PLANETSIZE_AVERAGE;
+					pct = dist(*mt);
+					if (pct<10)
+						size=PLANETSIZE_SMALL;
+					else if (pct<60)
+						size=PLANETSIZE_AVERAGE;
+					else
+						size=PLANETSIZE_LARGE;
 					break;
 				case 3:
 					type=PLANETTYPE_GAS;
