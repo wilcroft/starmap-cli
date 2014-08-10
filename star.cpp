@@ -59,12 +59,12 @@ void Star::addPlanets(std::mt19937* mt){
 				}
 			break;
 		case (TYPE_WHITE):		// F
-				thresh = 20;
+                thresh = 40;
 				for (int i=0; i<5; i++){
 					pct = dist(*mt);
 					if (pct<thresh){ //HIT
 						planet[i]=new Planet(mt, i, this);
-						thresh = thresh/2;
+                        thresh = thresh*.6;
 						numPlanets++;
 					}
 					else{
@@ -95,12 +95,14 @@ void Star::addPlanets(std::mt19937* mt){
 					pct = dist(*mt);
 					if (pct<thresh){ //HIT
 						planet[i]=new Planet(mt, i, this);
-						thresh = thresh*0.9;
+                        //thresh = thresh*0.9;
+                        thresh += 4*i+6;
 						numPlanets++;
 					}
 					else{
 						planet[i] = nullptr;
-						thresh=thresh*2.5;
+                        //thresh=thresh*2.5;
+                        thresh+=2*(i+2)*(i+2);
 					}
 				}
 				
@@ -231,7 +233,7 @@ std::string Star::getTypeString(){
 }
 
 void Star::printStarInfo() { 
-	cout << "(" << x << ", " << y << ") " ;
+    cout << "(" << setw(3)<< x << ", " << setw(3) << y << ")\t" ;
 	switch (type){
 		case TYPE_NIL:
 				cout << "NONE" << endl;
@@ -272,6 +274,14 @@ void Star::printStarInfo() {
         default: ;
 	}
 	cout << endl;
+    for (int i=0; i<5; i++){
+        cout << "\t\t";
+        if (planet[i]==nullptr)
+            cout << "-------";
+        else
+            cout << planet[i]->getSizeString() << " " << planet[i]->getBiomeString();
+        cout << endl;
+    }
 }
 
 

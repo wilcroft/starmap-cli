@@ -541,6 +541,8 @@ std::string Planet::getSizeString(){
 				return "AVERAGE";
 		case PLANETSIZE_LARGE:
 				return "LARGE";
+        case PLANETSIZE_GIANT:
+                return "";
 		default: 
 				return "NONE";
 	}	

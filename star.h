@@ -3,6 +3,7 @@
 
 #include <random>
 #include <iostream>
+#include <iomanip>
 #include "planet.h"
 #include "startype.h"
 #include "player.h"
